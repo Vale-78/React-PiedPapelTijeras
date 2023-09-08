@@ -1,31 +1,34 @@
 import EntradaSaludo  from './EntradaSaludo';
 import MostrarSaludo from './MostrarSaludo';
+// import { useState } from "react";
 
-export default function Saludo(){
-    return ( 
-    <div>
-      <p>Saludo</p>
-      <EntradaSaludo/>
-      <MostrarSaludo/>
-      
-    </div>)
-  }
-  
-  // import PropTypes from 'prop-types'
 
-  // const Saludo = (props) => {
-  //   return (
-  //     <p data-testid="saludo">
-  //       Hola, {props.nombre}
 
-  //       <EntradaSaludo/>
-  //     <MostrarSaludo/>
-  //     </p>
-  //   )
-  // }
+  <><EntradaSaludo/>
+     <MostrarSaludo/>;
+  </>
   
-  // Saludo.propTypes = {
-  //   nombre: PropTypes.string,
-  // }
   
-  // export default Saludo
+
+const Saludo = ({nombre, addNombre}) =>{
+        
+return(<div> 
+    <input
+            id="nombre"
+            name="nombre"
+            type="text"
+            placeholder='Ingresa tu nombre'
+            className="ingresoUsuario"
+            value={nombre}
+            required
+            onChange={(event) => addNombre(event.target.value)}
+          />
+ <p>Bienvenido/a {nombre}</p>
+ <p>Ya estás listo para comenzar?, entonces inicia tu juego!!👉🏻👉🏾</p>
+ {/* <button id="startButton" className="botonIniciar" onClick={enviarMensaje} type="submit">Iniciar Saludo</button> */}
+</div>
+)}
+
+export {Saludo};
+
+

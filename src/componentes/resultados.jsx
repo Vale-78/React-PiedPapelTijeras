@@ -1,12 +1,13 @@
 import ResultadosParciales from "./ResultadosParciales";
 import ResultadoFinal from "./ResultadoFinal";
 
- export default function Resultados(){
-  return ( <div>
-      <p>resultados</p>
+ function Resultados(){
+  return ( 
+      <div>
+      {/* <p>resultados {props.nombre}</p> */}
       <ResultadosParciales/>;
       <ResultadoFinal/>
     </div>)
   }
- 
-
+ export {Resultados};
+  
