@@ -3,28 +3,26 @@ import React from "react";
 import { Saludo } from "./componentes/Saludo";
 //Iniciar juego es para iniciar y reininiar juego
 import { Juego } from "./componentes/Juego";
-import { Resultados } from "./componentes/Resultados";
+// import { Resultados } from "./componentes/Resultados";
 import { InfoTitulo } from "./componentes/InfoTitulo";
 import { useState } from "react";
 
 import { IniciarJuego } from "./componentes/IniciarJuego";
 
 // https://github.com/uqbar-project/eg-hola-mundo-react/tree/master  ejemplo
-
+// https://es.linkedin.com/learning/domina-react/piedra-papel-o-tijera
 function App() {
+
   const opciones = ["piedra", "papel","tijeras"];
   const [values, setValues] = useState("");
   const [desbloquearJuego, setDesbloquearJuego] = useState(0);
   const [compuSelec, setCompuSelec] = useState("");
-  const [jugadorSelec, setjugadorSelec] = useState("");
-  const [puntosCompu, setPuntosCompu] = useState(0);
-  const [puntosJugador, setPuntosJugador] = useState(0);
-  const [jugadaElegida, setJugadaElegida] = useState(0);
-  const [resultado, setResultado] = useState("");
+  const [jugadorSelec, setJugadorSelec] = useState("");
+  // const [puntosCompu, setPuntosCompu] = useState(0);
+  // const [puntosJugador, setPuntosJugador] = useState(0);
+  // const [resultado, setResultado] = useState("");
   const [mostrarResultado, setMostrarResultado] = useState(false);
-  const [ganaPC, setGanaPC] = useState(0);
-  const [ganaUsuario, setGanaUsuario] = useState(0);
-  let jugadaCompu=0;
+
  
 
   return (
@@ -43,19 +41,25 @@ function App() {
       <div>
         {/* <section id="inicarJuego"> */}
         <IniciarJuego desbloquearJuego={setDesbloquearJuego} />
-        {desbloquearJuego === 1 ? <Juego jugadaElegida={jugadaElegida} setJugadaElegida= {setJugadaElegida} jugadaCompu={jugadaCompu} /> : <></>}
+        {desbloquearJuego === 1 ? 
+        <Juego 
+        opciones={opciones} 
+        jugadorSelec={jugadorSelec} 
+        setjugadorSelec={setJugadorSelec} 
+        mostrarResultado={mostrarResultado} 
+        setMostrarResultado={setMostrarResultado}
+        compuSelec={compuSelec}
+        setCompuSelec={setCompuSelec}
+
+        /> : <></>}
         
 
-        <Resultados
-          ganaUsuario={ganaUsuario}
-          ganaPC={ganaPC}
-          setGanaPC={setGanaPC}
-          setGanaUsuario={setGanaUsuario}
+        {/* <Resultados
+         
           nombre={values}
           addNombre={setValues}
-          jugadaElegida={jugadaElegida}
-          setJugadaElegida={setJugadaElegida}
-        />
+         
+        /> */}
       </div>
 
       {/* <section id="seleccionar-jugada"> */}
