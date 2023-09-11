@@ -1,8 +1,21 @@
-export default function IniciarJuego(){
-    return (
-    <div>
-    <p>IniciarJuego</p>
-    <button id="startButtonJuego" className="botonIniciar2">Iniciar Juego</button>
-  </div>)
-}
+const IniciarJuego = ({desbloquearJuego}) =>{
+  function iniciar() {
+    desbloquearJuego(1);
+  }
 
+  return (
+    <div>
+      <p>Ya estás listo para comenzar?, entonces inicia tu juego!!👉🏻👉🏾</p>
+     
+      <button
+        id="startButtonJuego"
+        className="botonIniciar"
+        onClick={iniciar}
+        type="submit"
+      >
+        Iniciar Juego
+      </button>
+    </div>
+  );
+}
+export {IniciarJuego};

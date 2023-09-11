@@ -1,5 +1,8 @@
-  export default function ResultadoFinal(){
-   return(<div>
+function ResultadoFinal() {
+  return (
+    <div>
       <p>resultadoFinal</p>
-    </div>)
-  }
+    </div>
+  );
+}
+export { ResultadoFinal };
