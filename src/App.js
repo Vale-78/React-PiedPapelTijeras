@@ -12,18 +12,15 @@ import { IniciarJuego } from "./componentes/IniciarJuego";
 // https://github.com/uqbar-project/eg-hola-mundo-react/tree/master  ejemplo
 // https://es.linkedin.com/learning/domina-react/piedra-papel-o-tijera
 function App() {
-
-  const opciones = ["piedra", "papel","tijeras"];
+  const opciones = ["piedra", "papel", "tijeras"];
   const [values, setValues] = useState("");
   const [desbloquearJuego, setDesbloquearJuego] = useState(0);
   const [compuSelec, setCompuSelec] = useState("");
   const [jugadorSelec, setJugadorSelec] = useState("");
-  // const [puntosCompu, setPuntosCompu] = useState(0);
-  // const [puntosJugador, setPuntosJugador] = useState(0);
-  // const [resultado, setResultado] = useState("");
+  const [puntosCompu, setPuntosCompu] = useState(0);
+  const [puntosJugador, setPuntosJugador] = useState(0);
+  const [resultado, setResultado] = useState("");
   const [mostrarResultado, setMostrarResultado] = useState(false);
-
- 
 
   return (
     <div className="App">
@@ -41,18 +38,25 @@ function App() {
       <div>
         {/* <section id="inicarJuego"> */}
         <IniciarJuego desbloquearJuego={setDesbloquearJuego} />
-        {desbloquearJuego === 1 ? 
-        <Juego 
-        opciones={opciones} 
-        jugadorSelec={jugadorSelec} 
-        setjugadorSelec={setJugadorSelec} 
-        mostrarResultado={mostrarResultado} 
-        setMostrarResultado={setMostrarResultado}
-        compuSelec={compuSelec}
-        setCompuSelec={setCompuSelec}
-
-        /> : <></>}
-        
+        {desbloquearJuego === 1 ? (
+          <Juego
+            opciones={opciones}
+            jugadorSelec={jugadorSelec}
+            setJugadorSelec={setJugadorSelec}
+            mostrarResultado={mostrarResultado}
+            setMostrarResultado={setMostrarResultado}
+            compuSelec={compuSelec}
+            setCompuSelec={setCompuSelec}
+            resultado={resultado}
+            setResultado={setResultado}
+            puntosCompu={puntosCompu}
+            setPuntosCompu={setPuntosCompu}
+            puntosJugador={puntosJugador}
+            setPuntosJugador={setPuntosJugador}
+          />
+        ) : (
+          <></>
+        )}
 
         {/* <Resultados
          

@@ -1,54 +1,62 @@
+import {EleccionUsuario} from "./EleccionUsuario";
+import { JuegoEjecutarRonda } from "./JuegoEjecutarRonda";
 
-import {EleccionUsuario} from "./EleccionUsuario.jsx"
-
-
-function Juego({ opciones, jugadorSelec, setJugadorSelec, mostrarResultado, setMostrarResultado,  compuSelec, setCompuSelec}) {
+function Juego({
+  opciones,
+  jugadorSelec,
+  setJugadorSelec,
+  mostrarResultado,
+  setMostrarResultado,
+  compuSelec,
+  setCompuSelec,
+  resultado,
+  setResultado,
+  puntosCompu,
+  setPuntosCompu,
+  puntosJugador,
+  setPuntosJugador,
+}) {
   return (
     <div>
       <p>El mejor de 5 jugadas gana. Los empates no se cuentan. Éxitos!!</p>
-      {/* <button id="startButtonJuego" className="botonIniciar"onClick={iniciar} type="submit">Iniciar Juego</button> */}
+    
 
       <div>
+        <EleccionUsuario
+          jugadorSelec={jugadorSelec}
+          setJugadorSelec={setJugadorSelec}
+          opciones={opciones}
+          mostrarResultado={mostrarResultado}
+          setMostrarResultado={setMostrarResultado}
+          compuSelec={compuSelec}
+          setCompuSelec={setCompuSelec}
+          resultado={resultado}
+          setResultado={setResultado}
+          puntosCompu={puntosCompu}
+          setPuntosCompu={setPuntosCompu}
+          puntosJugador={puntosJugador}
+          setPuntosJugador={setPuntosJugador}
+        /></div>
+          <div>
+            <JuegoEjecutarRonda
+              jugadorSelec={jugadorSelec}
+              setJugadorSelec={setJugadorSelec}
+              opciones={opciones}
+              mostrarResultado={mostrarResultado}
+              setMostrarResultado={setMostrarResultado}
+              puntosCompu={puntosCompu}
+              setPuntosCompu={setPuntosCompu}
+              puntosJugador={puntosJugador}
+              setPuntosJugador={setPuntosJugador}
+              compuSelec={compuSelec}
+              setCompuSelec={setCompuSelec}
+              resultado={resultado}
+              setResultado={setResultado}
+            />
+          </div>
         
-        <EleccionUsuario jugadorSelec={jugadorSelec} setJugadorSelec={setJugadorSelec} opciones= {opciones} mostrarResultado={mostrarResultado} setMostrarResultado={setMostrarResultado}  compuSelec={compuSelec}
-        setCompuSelec={setCompuSelec}/>
       
-      </div>
     </div>
   );
 }
 export { Juego };
-
-// import './App.css';
-// import { useState } from 'react';
-// import React from 'react';
-// import { Child } from './components/child';
-
-// function App() {
-//   const [contadores, setState] = useState(0);
-//   return (
-//     <div>
-//       <Child tipo="piedra" contador={contadores} setContador={setState} />
-//       <Child tipo="papel" contador={contadores} setContador={setState} />
-//       <Child tipo="tijera" contador={contadores} setContador={setState} />
-//       {contadores}
-//     </div>
-//   );
-// }
-// export default App;
-// import React from "react";
-
-// function determinarJugadaComputadora() {
-//     return Math.floor(Math.random() * 3) + 1;
-// }
-
-// export const Child = ( { tipo, contador, setContador } ) => {
-//     function aumentarContador() {
-//         setContador(contador + 1);
-//     }
-//     return (
-//         <div>
-//             <button onClick={aumentarContador}>{tipo}</button>
-//         </div>
-//     )
-// }
