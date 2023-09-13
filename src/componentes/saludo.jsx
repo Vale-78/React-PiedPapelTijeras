@@ -1,6 +1,13 @@
 // import { useState } from "react";
 
-const Saludo = ({ nombre, addNombre }) => {
+const Saludo = ({ name, setName}) => {
+  // const [inputValue, setInputValue] = useState('');
+    
+ const handleInputChange = (event) => {
+       setName(event.target.value);
+     };
+
+    
   return (
     <div>
       <input
@@ -8,12 +15,11 @@ const Saludo = ({ nombre, addNombre }) => {
         name="nombre"
         type="text"
         placeholder="Ingresa tu nombre"
-        className="ingresoUsuario"
-        value={nombre}
+        value={name}
         required
-        onChange={(event) => addNombre(event.target.value)}
+        onChange={handleInputChange}
       />
-      <p>Bienvenido/a {nombre}</p>
+      <p>Bienvenido/a {name}</p>
     </div>
   );
 };

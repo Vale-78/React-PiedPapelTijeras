@@ -13,64 +13,101 @@ import { IniciarJuego } from "./componentes/IniciarJuego";
 // https://es.linkedin.com/learning/domina-react/piedra-papel-o-tijera
 
 function App() {
-  const [values, setValues] = useState("");
+  const [name, setName] = useState("");
   const [desbloquearJuego, setDesbloquearJuego] = useState(0);
-  // const [compuSelec, setCompuSelec] = useState("");
-  // const [jugadorSelec, setJugadorSelec] = useState("");
+  const [jugadorPuntos, setJugadorPuntos] = useState(0);
+  const [compuPuntos, setCompuPuntos] = useState(0);
+  const [compuSelec, setCompuSelec] = useState("");
+  const [jugadorSelec, setJugadorSelec] = useState("");
   // const [puntosCompu, setPuntosCompu] = useState(0);
   // const [puntosJugador, setPuntosJugador] = useState(0);
-  // const [resultado, setResultado] = useState("");
-  // const [mostrarResultado, setMostrarResultado] = useState(false);
+  const [resultFinal, setResultFinal] = useState("");
+  const [resultado, setResultado] = useState("");
+  const [mostrarResultado, setMostrarResultado] = useState(false);
 
-  // const agregoEmoji = (opcion) => {
-  //   switch (opcion) {
-  //     case "piedra":
-  //       return "🪨";
-  //     case "papel":
-  //       return "🧻";
-  //     case "tijeras":
-  //       return "✂️";
-  //     default:
-  //       break;
-  //   }
-  // };
   return (
     <div className="App">
       <div className="info-container">
         <InfoTitulo />
       </div>
-
-   
       <Saludo
-        nombre={values}
-        addNombre={setValues}
+        name={name}
+        setName={setName}
         desbloquearJuego={setDesbloquearJuego}
       />
-
+      {name}
+      <IniciarJuego desbloquearJuego={setDesbloquearJuego} />
+      {desbloquearJuego === 1 ? (
+        <div>
+          <Botones
+            tipo="piedra"
+            jugadorSelec={jugadorSelec}
+            setJugadorSelec={setJugadorSelec}
+            compuSelec={compuSelec}
+            setCompuSelec={setCompuSelec}
+            resultFinal={resultFinal}
+            setResultFinal={setResultFinal}
+            mostrarResultado={mostrarResultado}
+            setMostrarResultado={setMostrarResultado}
+            resultado={resultado}
+            setResultado={setResultado}
+            jugadorPuntos={jugadorPuntos}
+            setJugadorPuntos={setJugadorPuntos}
+            compuPuntos={compuPuntos}
+            setCompuPuntos={setCompuPuntos}
+          />
+          <Botones
+            tipo="papel"
+            jugadorSelec={jugadorSelec}
+            setJugadorSelec={setJugadorSelec}
+            compuSelec={compuSelec}
+            setCompuSelec={setCompuSelec}
+            mostrarResultado={mostrarResultado}
+            setMostrarResultado={setMostrarResultado}
+            resultado={resultado}
+            setResultado={setResultado}
+            jugadorPuntos={jugadorPuntos}
+            setJugadorPuntos={setJugadorPuntos}
+            compuPuntos={compuPuntos}
+            setCompuPuntos={setCompuPuntos}
+          />
+          <Botones
+            tipo="tijeras"
+            jugadorSelec={jugadorSelec}
+            setJugadorSelec={setJugadorSelec}
+            compuSelec={compuSelec}
+            setCompuSelec={setCompuSelec}
+            mostrarResultado={mostrarResultado}
+            setMostrarResultado={setMostrarResultado}
+            resultado={resultado}
+            setResultado={setResultado}
+            jugadorPuntos={jugadorPuntos}
+            setJugadorPuntos={setJugadorPuntos}
+            compuPuntos={compuPuntos}
+            setCompuPuntos={setCompuPuntos}
+          />
+        </div>
+      ) : (
+        <></>
+      )}
       <div>
-
-        <IniciarJuego desbloquearJuego={setDesbloquearJuego} />
-
-        {desbloquearJuego === 1 ? <Botones /> : <></>}
-       </div>
-        {/* <div>
+        <div>
           <h2>Puntajes</h2>
-          <p>Compu: {puntosCompu}</p>
-          <p>Tu puntaje: {puntosJugador}</p>
+          <p>Compu: {compuPuntos}</p>
+          <p>Tu puntaje: {jugadorPuntos}</p>
         </div>
       </div>
-
       {mostrarResultado && (
         <div>
-          <div>Compu : {agregoEmoji(compuSelec)}</div>
-          <div>Tu eleccionCompu: {agregoEmoji(jugadorSelec)}</div>
+          <div>{compuSelec} </div>
+          <div>{jugadorSelec} </div>
           <div>
             <h4>Resultado Final</h4>
-            <h4>{resultado}</h4>
+            <h4>{resultFinal}</h4>
           </div>
         </div>
-      )} */}
-
+      )}
+      ;
       {/* <Resultados
          
           nombre={values}
