@@ -1,9 +1,5 @@
 function Botones({
   tipo,
-  name, 
-  setName,
-  ganador,
-  setGanador,
   ganaJugador,
   setGanaJugador,
   ganaPC,
@@ -72,37 +68,20 @@ function Botones({
               resultadoParcial="Ganaste!!!";
               setGanaJugador(ganaJugador + 1);
             }setResultadoParcial(resultadoParcial);
-     } if (ganaJugador === 3 || ganaPC === 3) {
-     let jugadorGana = ganaJugador;
-     let compuGana = ganaPC;
-     resultadoFinalfin(jugadorGana, compuGana);
-     }
-    function resultadoFinalfin(jugadorGana, compuGana) {
-      if (jugadorGana > compuGana) {
-        resultFinal="Felicitaciones "+ {setName}+ ",  Ganaste!!!!";
+     } 
+    
+      if ((ganaJugador === 3 || ganaPC === 3) && (ganaJugador > ganaPC)) {
+        resultFinal=": Felicitaciones ,  Ganaste!!!!";
         
-      } else {
-        resultFinal="Lo siento "+ {setName}+ ", Gana la Computadora.";
+      } else if ((ganaJugador === 3 || ganaPC === 3) && (ganaJugador < ganaPC)){
+        resultFinal=": Lo siento , Gana la Computadora.";
+        
       }
-      setResultFinal(resultFinal);
+   
+     setResultFinal(resultFinal);
     setMostrarResultado(true);
   return resultFinal;
-    }
    }
-  
-
-  //     function reiniciar(){
-  //     //   jugadaUsuario=0
-  //     //   setMostrarResultado=0
-  //     //   compuSelec=""
-  //     //   setResultado=0
-  //       ganaPC=0
-  //     //   setGanaPC=0
-  //       ganaJugador=0
-  //       setGanaJugador=0
-
-  //     //  {ganadas,perdidas}
-  //   }
 
   function jugar() {
     const jugadaComputadora = calcularJugadaComputadora();
@@ -110,6 +89,7 @@ function Botones({
     const jugadaUsuario = determinarJugadaUsuario();
     const ganadorFinal = determinarGanador(jugadaUsuario, jugadaComputadora);
     resultFinal = ganadorFinal;
+    
   }
   return (
     <div>
