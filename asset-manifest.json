@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/React-PiedPapelTijeras/static/css/main.073c9b0a.css",
-    "main.js": "/React-PiedPapelTijeras/static/js/main.ed3d3315.js",
+    "main.js": "/React-PiedPapelTijeras/static/js/main.261cf822.js",
     "static/js/787.7b68020e.chunk.js": "/React-PiedPapelTijeras/static/js/787.7b68020e.chunk.js",
     "index.html": "/React-PiedPapelTijeras/index.html",
     "main.073c9b0a.css.map": "/React-PiedPapelTijeras/static/css/main.073c9b0a.css.map",
-    "main.ed3d3315.js.map": "/React-PiedPapelTijeras/static/js/main.ed3d3315.js.map",
+    "main.261cf822.js.map": "/React-PiedPapelTijeras/static/js/main.261cf822.js.map",
     "787.7b68020e.chunk.js.map": "/React-PiedPapelTijeras/static/js/787.7b68020e.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.073c9b0a.css",
-    "static/js/main.ed3d3315.js"
+    "static/js/main.261cf822.js"
   ]
 }
