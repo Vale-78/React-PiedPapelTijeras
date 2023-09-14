@@ -1,9 +1,12 @@
+
 function Botones({
   tipo,
-  jugadorPuntos,
-  setJugadorPuntos,
-  compuPuntos,
-  setCompuPuntos,
+  ganador,
+  setGanador,
+  ganaJugador,
+  setGanaJugador,
+  ganaPC,
+  setGanaPC,
   resultado,
   setResultado,
   resultFinal,
@@ -23,100 +26,98 @@ function Botones({
     let eleccionAleatoria = aleatorio(3);
 
     if (eleccionAleatoria === 0) {
-      jugadaCompu = "piedra";
-      setCompuSelec("La compu eligió Piedra 🪨");
+        jugadaCompu = "piedra";
+      resultado="La compu eligió Piedra 🪨";
     } else if (eleccionAleatoria === 1) {
-      jugadaCompu = "papel";
-      setCompuSelec("La compu eligió Papel 🧻");
-    } else {
-      jugadaCompu = "tijeras";
-      setCompuSelec("La compu eligió Tijeras ✂️");
+        jugadaCompu = "papel";
+      resultado= "La compu eligió Papel 🧻";
+    } else if (eleccionAleatoria === 2){
+        jugadaCompu= "tijeras";
+      resultado="La compu eligió Tijeras ✂️";
     }
-
     setMostrarResultado(true);
-    console.log(jugadaCompu);
+    setCompuSelec(resultado);
     return jugadaCompu;
   }
-  function eleccionUsuario(tipo) {
-    if (tipo === "piedra") {
-      setJugadorSelec("Elegiste Piedra 🪨");
-    } else if (tipo === "papel") {
-      setJugadorSelec("Elegiste Papel 🧻");
-    } else {
-      setJugadorSelec("Elegiste Tijeras ✂️");
-    }
-  }
-  eleccionUsuario(tipo);
 
-  function determinarGanador(jugadaUsuario, jugadaComputadora) {
-    if (jugadorPuntos < 3 && compuPuntos < 3) {
-      if (jugadaComputadora === jugadaUsuario) {
-        setResultado("Empate");
-      } else if (
-        (jugadaComputadora === "piedra" && jugadaUsuario === "tijeras") ||
-        (jugadaComputadora === "papel" && jugadaUsuario === "piedra") ||
-        (jugadaComputadora === "tijeras" && jugadaUsuario === "papel")
-      ) {
-        setResultado("Gana la compu");
-        setCompuPuntos(compuPuntos + 1);
-      } else {
-        setResultado("Ganaste!!!");
-        setJugadorPuntos(jugadorPuntos + 1);
-      }
-      if (jugadorPuntos === 3 || compuPuntos === 3) {
-        let jugadorGana = setJugadorPuntos(jugadorPuntos);
-        let compuGana = setCompuPuntos(compuPuntos);
-        if (jugadorGana > compuGana) {
-            setResultFinal("Felicitaciones ,  Ganaste!!!!");
-          } else {
-            setResultFinal("Lo siento , Gana la Computadora.");
-          }
+
+  function determinarJugadaUsuario() {
+    if (tipo === "piedra") {
+      jugadorSelec = "Elegiste  Piedra 🪨";
+    } else if (tipo === "papel") {
+      jugadorSelec="Elegiste Papel 🧻";
+    } else if (tipo === "tijeras"){
+      jugadorSelec="Elegiste Tijeras ✂️";
+    }
+    setJugadorSelec(jugadorSelec);
+    return tipo;
+  }
+ 
+  
+
+  function determinarGanador(eleccionUsuario, eleccionCompu) {
+    console.log(eleccionUsuario)
+    console.log(eleccionCompu)
+    if (ganaJugador < 3 && ganaPC < 3) {
+        if (eleccionCompu === eleccionUsuario) {
+            setResultado("Empate");
+        } else if (
+            (eleccionCompu === "piedra" && eleccionUsuario === "tijeras") ||
+            (eleccionCompu === "papel" && eleccionUsuario === "piedra") ||
+            (eleccionCompu === "tijeras" && eleccionUsuario === "papel")
+        ) {
+            setResultado("Gana la compu");
+            setGanaPC(ganaPC + 1);
+        } else {
+            setResultado("Ganaste!!!");
+            setGanaJugador(ganaJugador + 1);
+        }
+        
+      if (ganaJugador === 3 || ganaPC === 3) {
+        let jugadorGana = ganaJugador;
+        let compuGana = ganaPC;
+            if (jugadorGana > compuGana) {
+                resultFinal="Felicitaciones ,  Ganaste!!!!";
+                ganador= jugadorGana;
+            } else {
+                resultFinal ="Lo siento , Gana la Computadora.";
+                ganador = compuGana;
+            }
+            setGanador(ganador);
+            return resultFinal;
       }
       
       setMostrarResultado(true);
-      return resultado;
     }
-    return resultFinal;
+    
   }
+
   //     function reiniciar(){
   //     //   jugadaUsuario=0
   //     //   setMostrarResultado=0
   //     //   compuSelec=""
   //     //   setResultado=0
-  //       compuPuntos=0
-  //     //   setcompuPuntos=0
-  //       jugadorPuntos=0
-  //       setJugadorPuntos=0
+  //       ganaPC=0
+  //     //   setGanaPC=0
+  //       ganaJugador=0
+  //       setGanaJugador=0
 
   //     //  {ganadas,perdidas}
   //   }
 
   function jugar() {
-    const jugadaUsuario = tipo;
-    console.log(jugadaUsuario);
+       
     const jugadaComputadora = calcularJugadaComputadora();
-    
-    determinarGanador(jugadaUsuario, jugadaComputadora)
-    
-  
+    // console.log(jugadaComputadora);
+    const jugadaUsuario =  determinarJugadaUsuario()
+   const ganadorFinal = determinarGanador(jugadaUsuario, jugadaComputadora)
+   ganador = ganadorFinal;
    
   }
   return (
     <div>
-      <button onClick={jugar()}>{tipo}</button>
+      <button onClick={jugar}>{tipo}</button>
     </div>
   );
 }
 export { Botones };
-
-// const ResultadosParciales = ({ jugadaElegida, setJugadaElegida }) => {
-//   const increment = () => {
-//     setJugadaElegida(jugadaElegida + 1);
-//   };
-//   return (
-//     <div>
-//       <button onClick={increment}>{jugadaElegida}</button>
-//     </div>
-//   );
-// };
-// export {ResultadosParciales};
