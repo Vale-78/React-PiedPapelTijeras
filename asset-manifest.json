@@ -1,16 +1,15 @@
 {
   "files": {
     "main.css": "/React-PiedPapelTijeras/static/css/main.073c9b0a.css",
-    "main.js": "/React-PiedPapelTijeras/static/js/main.794061ee.js",
+    "main.js": "/React-PiedPapelTijeras/static/js/main.0022d7de.js",
     "static/js/787.7b68020e.chunk.js": "/React-PiedPapelTijeras/static/js/787.7b68020e.chunk.js",
-    "static/media/logo.svg": "/React-PiedPapelTijeras/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/React-PiedPapelTijeras/index.html",
     "main.073c9b0a.css.map": "/React-PiedPapelTijeras/static/css/main.073c9b0a.css.map",
-    "main.794061ee.js.map": "/React-PiedPapelTijeras/static/js/main.794061ee.js.map",
+    "main.0022d7de.js.map": "/React-PiedPapelTijeras/static/js/main.0022d7de.js.map",
     "787.7b68020e.chunk.js.map": "/React-PiedPapelTijeras/static/js/787.7b68020e.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.073c9b0a.css",
-    "static/js/main.794061ee.js"
+    "static/js/main.0022d7de.js"
   ]
 }
