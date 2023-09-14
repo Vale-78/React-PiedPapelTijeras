@@ -23,6 +23,7 @@ function App() {
 
   const [resultFinal, setResultFinal] = useState("");
   const [resultado, setResultado] = useState("");
+  const [resultadoParcial, setResultadoParcial] = useState("");
   const [mostrarResultado, setMostrarResultado] = useState(false);
 
   return (
@@ -41,6 +42,8 @@ function App() {
         <div>
           <Botones
             tipo="piedra"
+            name={name}
+            setName={setName}
             ganador={ganador} 
             setGanador={setGanador}
             jugadorSelec={jugadorSelec}
@@ -57,9 +60,13 @@ function App() {
             setGanaJugador={setGanaJugador}
             ganaPC={ganaPC}
             setGanaPC={setGanaPC}
+            resultadoParcial={resultadoParcial}
+            setResultadoParcial={setResultadoParcial}
           />
           <Botones
             tipo="papel"
+            name={name}
+            setName={setName}
             ganador={ganador} 
             setGanador={setGanador}
             jugadorSelec={jugadorSelec}
@@ -76,9 +83,13 @@ function App() {
             setGanaJugador={setGanaJugador}
             ganaPC={ganaPC}
             setGanaPC={setGanaPC}
+            resultadoParcial={resultadoParcial}
+            setResultadoParcial={setResultadoParcial}
           />
           <Botones
             tipo="tijeras"
+            name={name}
+            setName={setName}
             ganador={ganador} 
             setGanador={setGanador}
             jugadorSelec={jugadorSelec}
@@ -95,14 +106,13 @@ function App() {
             setGanaJugador={setGanaJugador}
             ganaPC={ganaPC}
             setGanaPC={setGanaPC}
+            resultadoParcial={resultadoParcial}
+            setResultadoParcial={setResultadoParcial}
           />
-        </div>
-      ) : (
-        <></>
-      )}
-      <div>
+
+<div>
         <div>
-          <h2>Puntajes</h2>
+          <h3>Puntajes</h3>
           <p>Compu: {ganaPC}</p>
           <p>Tu puntaje: {ganaJugador}</p>
         </div>
@@ -112,11 +122,20 @@ function App() {
           <div>{compuSelec} </div>
           <div>{jugadorSelec} </div>
           <div>
-            <h4>Resultado Final</h4>
-            <h4>{resultFinal}</h4>
+            <h4>{resultadoParcial}</h4>
+          </div>
+          <div>
+            <h3>Resultado Final</h3>
+            <h3>{resultFinal}</h3>
           </div>
         </div>
       )}
+        </div>
+        
+      ) : (
+        <></>
+      )}
+   
       
       {/* <Resultados
          
