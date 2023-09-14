@@ -15,12 +15,12 @@ import { IniciarJuego } from "./componentes/IniciarJuego";
 function App() {
   const [name, setName] = useState("");
   const [desbloquearJuego, setDesbloquearJuego] = useState(0);
-  const [jugadorPuntos, setJugadorPuntos] = useState(0);
-  const [compuPuntos, setCompuPuntos] = useState(0);
+  const [ganaJugador, setGanaJugador] = useState(0);
+  const [ganaPC, setGanaPC] = useState(0);
   const [compuSelec, setCompuSelec] = useState("");
   const [jugadorSelec, setJugadorSelec] = useState("");
-  // const [puntosCompu, setPuntosCompu] = useState(0);
-  // const [puntosJugador, setPuntosJugador] = useState(0);
+  const [ganador, setGanador] = useState("");
+
   const [resultFinal, setResultFinal] = useState("");
   const [resultado, setResultado] = useState("");
   const [mostrarResultado, setMostrarResultado] = useState(false);
@@ -41,6 +41,8 @@ function App() {
         <div>
           <Botones
             tipo="piedra"
+            ganador={ganador} 
+            setGanador={setGanador}
             jugadorSelec={jugadorSelec}
             setJugadorSelec={setJugadorSelec}
             compuSelec={compuSelec}
@@ -51,40 +53,48 @@ function App() {
             setMostrarResultado={setMostrarResultado}
             resultado={resultado}
             setResultado={setResultado}
-            jugadorPuntos={jugadorPuntos}
-            setJugadorPuntos={setJugadorPuntos}
-            compuPuntos={compuPuntos}
-            setCompuPuntos={setCompuPuntos}
+            ganaJugador={ganaJugador}
+            setGanaJugador={setGanaJugador}
+            ganaPC={ganaPC}
+            setGanaPC={setGanaPC}
           />
           <Botones
             tipo="papel"
+            ganador={ganador} 
+            setGanador={setGanador}
             jugadorSelec={jugadorSelec}
             setJugadorSelec={setJugadorSelec}
             compuSelec={compuSelec}
             setCompuSelec={setCompuSelec}
+            resultFinal={resultFinal}
+            setResultFinal={setResultFinal}
             mostrarResultado={mostrarResultado}
             setMostrarResultado={setMostrarResultado}
             resultado={resultado}
             setResultado={setResultado}
-            jugadorPuntos={jugadorPuntos}
-            setJugadorPuntos={setJugadorPuntos}
-            compuPuntos={compuPuntos}
-            setCompuPuntos={setCompuPuntos}
+            ganaJugador={ganaJugador}
+            setGanaJugador={setGanaJugador}
+            ganaPC={ganaPC}
+            setGanaPC={setGanaPC}
           />
           <Botones
             tipo="tijeras"
+            ganador={ganador} 
+            setGanador={setGanador}
             jugadorSelec={jugadorSelec}
             setJugadorSelec={setJugadorSelec}
             compuSelec={compuSelec}
             setCompuSelec={setCompuSelec}
+            resultFinal={resultFinal}
+            setResultFinal={setResultFinal}
             mostrarResultado={mostrarResultado}
             setMostrarResultado={setMostrarResultado}
             resultado={resultado}
             setResultado={setResultado}
-            jugadorPuntos={jugadorPuntos}
-            setJugadorPuntos={setJugadorPuntos}
-            compuPuntos={compuPuntos}
-            setCompuPuntos={setCompuPuntos}
+            ganaJugador={ganaJugador}
+            setGanaJugador={setGanaJugador}
+            ganaPC={ganaPC}
+            setGanaPC={setGanaPC}
           />
         </div>
       ) : (
@@ -93,8 +103,8 @@ function App() {
       <div>
         <div>
           <h2>Puntajes</h2>
-          <p>Compu: {compuPuntos}</p>
-          <p>Tu puntaje: {jugadorPuntos}</p>
+          <p>Compu: {ganaPC}</p>
+          <p>Tu puntaje: {ganaJugador}</p>
         </div>
       </div>
       {mostrarResultado && (
@@ -107,7 +117,7 @@ function App() {
           </div>
         </div>
       )}
-      ;
+      
       {/* <Resultados
          
           nombre={values}
