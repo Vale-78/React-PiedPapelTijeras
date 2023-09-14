@@ -52,48 +52,47 @@ function Botones({
   }
 
   function determinarGanador(eleccionUsuario, eleccionCompu) {
-    console.log(eleccionUsuario);
-    console.log(eleccionCompu);
     if (ganaJugador < 3 && ganaPC < 3) {
-            if (eleccionCompu === eleccionUsuario) {
-              resultadoParcial="Empate";
-            } else if (
-              (eleccionCompu === "piedra" && eleccionUsuario === "tijeras") ||
-              (eleccionCompu === "papel" && eleccionUsuario === "piedra") ||
-              (eleccionCompu === "tijeras" && eleccionUsuario === "papel")
-            ) {
-              resultadoParcial="Gana la compu";
-              setGanaPC(ganaPC + 1);
-            } else {
-              resultadoParcial="Ganaste!!!";
-              setGanaJugador(ganaJugador + 1);
-            }setResultadoParcial(resultadoParcial);
-     } 
-    
-      if ((ganaJugador === 3 || ganaPC === 3) && (ganaJugador > ganaPC)) {
-        resultFinal=": Felicitaciones ,  Ganaste!!!!";
-        
-      } else if ((ganaJugador === 3 || ganaPC === 3) && (ganaJugador < ganaPC)){
-        resultFinal=": Lo siento , Gana la Computadora.";
-        
+      if (eleccionCompu === eleccionUsuario) {
+        resultadoParcial = "Empate";
+      } else if (
+        (eleccionCompu === "piedra" && eleccionUsuario === "tijeras") ||
+        (eleccionCompu === "papel" && eleccionUsuario === "piedra") ||
+        (eleccionCompu === "tijeras" && eleccionUsuario === "papel")
+      ) {
+        resultadoParcial = "Gana la compu";
+        setGanaPC(ganaPC + 1);
+      } else {
+        resultadoParcial = "Ganaste!!!";
+        setGanaJugador(ganaJugador + 1);
       }
-   
-     setResultFinal(resultFinal);
+      setResultadoParcial(resultadoParcial);
+    }
+
+    if ((ganaJugador === 3 || ganaPC === 3) && ganaJugador > ganaPC) {
+      resultFinal = ": Felicitaciones ,  Ganaste!!!!";
+    } else if ((ganaJugador === 3 || ganaPC === 3) && ganaJugador < ganaPC) {
+      resultFinal = ": Lo siento , Gana la Computadora.";
+    }
+
+    setResultFinal(resultFinal);
     setMostrarResultado(true);
-  return resultFinal;
-   }
+    return resultFinal;
+  }
 
   function jugar() {
     const jugadaComputadora = calcularJugadaComputadora();
-    // console.log(jugadaComputadora);
     const jugadaUsuario = determinarJugadaUsuario();
     const ganadorFinal = determinarGanador(jugadaUsuario, jugadaComputadora);
+    console.log(ganadorFinal);
     resultFinal = ganadorFinal;
-    
+    // reiniciar();
   }
   return (
     <div>
-      <button onClick={jugar}>{tipo}</button>
+      <div>
+        <button onClick={jugar}>{tipo}</button>
+      </div>
     </div>
   );
 }

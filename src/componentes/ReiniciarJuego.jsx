@@ -1,4 +1,4 @@
-const ReniciarJuego = (
+const ReiniciarJuego = ({
   ganaJugador,
   setGanaJugador,
   ganaPC,
@@ -16,32 +16,42 @@ const ReniciarJuego = (
   resultadoParcial,
   setResultadoParcial,
   desbloquearJuego,
-  setDesbloquearJuego
-) => {
-  function iniciar() {
-    desbloquearJuego(1);
+  setDesbloquearJuego,
+}) => {
+  function reestablecerPuntuaciones() {
+    console.log("presioné reiniciar");
+    jugadorSelec = "";
+    setMostrarResultado("");
+    compuSelec = "";
+    setResultado("");
+    ganaJugador = 0;
+    setGanaJugador(0);
+    ganaPC = 0;
+    setGanaPC(0);
+    resultado = "";
+    setResultado("");
+    resultFinal = "";
+    setResultFinal("");
+    mostrarResultado = false;
+    setMostrarResultado = false;
+    setCompuSelec("");
+    jugadorSelec = "";
+    setJugadorSelec("");
+    resultadoParcial = "";
+    setResultadoParcial("");
   }
 
   return (
     <div>
-      <div>
-        jugadorSelec=0 setMostrarResultado="" compuSelec="" setResultado=0
-        ganaJugador=0 setGanaJugador=0 ganaPC=0 setGanaPC=0 resultado=""
-        setResultado="" resultFinal="" setResultFinal="" mostrarResultado=false
-        setMostrarResultado=false compuSelec="" setCompuSelec="" jugadorSelec=""
-        setJugadorSelec="" resultadoParcial="" setResultadoParcial=""
-      </div>
-      <p>Ya estás listo para comenzar?, entonces inicia tu juego!!👉🏻👉🏾</p>
-
       <button
-        id="startButtonJuego"
-        className="botonIniciar"
-        onClick={iniciar}
+        id="re-StartButtonJuego"
+        className="botonReiniciar"
+        onClick={reestablecerPuntuaciones}
         type="submit"
       >
-        Iniciar Juego
+        Reiniciar Juego
       </button>
     </div>
   );
 };
-export { ReniciarJuego };
+export { ReiniciarJuego };

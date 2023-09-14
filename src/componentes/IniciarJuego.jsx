@@ -1,4 +1,4 @@
-const IniciarJuego = ({desbloquearJuego}) =>{
+const IniciarJuego = ({ desbloquearJuego }) => {
   function iniciar() {
     desbloquearJuego(1);
   }
@@ -6,7 +6,7 @@ const IniciarJuego = ({desbloquearJuego}) =>{
   return (
     <div>
       <p>Ya estás listo para comenzar?, entonces inicia tu juego!!👉🏻👉🏾</p>
-     
+
       <button
         id="startButtonJuego"
         className="botonIniciar"
@@ -17,7 +17,5 @@ const IniciarJuego = ({desbloquearJuego}) =>{
       </button>
     </div>
   );
-}
-export {IniciarJuego};
-
-
+};
+export { IniciarJuego };
