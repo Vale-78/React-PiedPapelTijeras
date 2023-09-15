@@ -5,7 +5,8 @@ const IniciarJuego = ({ desbloquearJuego }) => {
 
   return (
     <div>
-      <p>Ya estás listo para comenzar?, entonces inicia tu juego!!👉🏻👉🏾</p>
+      <p>Ya estás listo para comenzar?, entonces inicia tu juego!!</p>
+      <p>👇🏽👇🏽👇🏽</p>
 
       <button
         id="startButtonJuego"

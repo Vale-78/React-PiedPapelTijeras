@@ -5,10 +5,13 @@ import { Saludo } from "./componentes/Saludo";
 import { Botones } from "./componentes/Botones";
 import { Resultados } from "./componentes/Resultados";
 import { InfoTitulo } from "./componentes/InfoTitulo";
+import Fondo00 from "./assest/Fondo00.png";
 import { useState } from "react";
-
 import { IniciarJuego } from "./componentes/IniciarJuego";
 import { ReiniciarJuego } from "./componentes/ReiniciarJuego";
+// import piedra from "../assest/piedra.png"
+// import papel from "../assest/papel.png"
+// import tijeras from "../assest/tijeras.png"
 
 // https://github.com/uqbar-project/eg-hola-mundo-react/tree/master  ejemplo
 // https://es.linkedin.com/learning/domina-react/piedra-papel-o-tijera
@@ -25,9 +28,25 @@ function App() {
   const [resultado, setResultado] = useState("");
   const [resultadoParcial, setResultadoParcial] = useState("");
   const [mostrarResultado, setMostrarResultado] = useState(false);
+  // const imgBotones={
+  //   piedra: require("")
+  // }
+    // import piedra from "../assest/piedra.png"
+// import papel from "../assest/papel.png"
+// import tijeras from "../assest/tijeras.png"
+  
+  
+  // const appStyle = {
+  //   color: 'blue',
+  //   backgroundImage: 'url(' + imgUrl + ')',
+  // };
+  
+  // function HelloWorldComponent() {
+  //   return <div style={appStyle}>Hello World!</div>;
+  // }
 
   return (
-    <div className="App">
+    <div className="App" style={{ backgroundImage: `url(${Fondo00})` }}>
       <div className="info-container">
         <InfoTitulo />
       </div>
@@ -113,7 +132,7 @@ function App() {
             resultadoParcial={resultadoParcial}
           />
           <div>
-            <h3>Resultado Final</h3>
+          <h3>Resultado Final</h3>
             <h3>
               {name}
               {resultFinal}

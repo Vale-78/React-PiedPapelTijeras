@@ -1,3 +1,9 @@
+// import React from 'react';
+// import piedra from "../assest/piedra.png"
+// import papel from "../assest/papel.png"
+// import tijeras from "../assest/tijeras.png"
+
+
 function Botones({
   tipo,
   ganaJugador,
@@ -17,6 +23,18 @@ function Botones({
   resultadoParcial,
   setResultadoParcial,
 }) {
+  const botonStyle = {
+     color: 'blue',
+     fontSize: 25,
+  //   backgroundImage: 'url(' + imgUrl + ')',
+  //backgroundRepeat: 'no-repeat',
+   };
+//    <div style={{ backgroundImage: "url(/image.png)" }}>
+//    Hello World
+//  </div>
+  // function HelloWorldComponent() {
+  //   return <div style={appStyle}>Hello World!</div>;
+  // }
   function aleatorio(n) {
     return Math.floor(Math.random() * n);
   }
@@ -69,9 +87,9 @@ function Botones({
       setResultadoParcial(resultadoParcial);
     }
 
-    if ((ganaJugador === 3 || ganaPC === 3) && ganaJugador > ganaPC) {
+    if ((ganaJugador === 2 || ganaPC === 2) && ganaJugador > ganaPC) {
       resultFinal = ": Felicitaciones ,  Ganaste!!!!";
-    } else if ((ganaJugador === 3 || ganaPC === 3) && ganaJugador < ganaPC) {
+    } else if ((ganaJugador === 2 || ganaPC === 2) && ganaJugador < ganaPC) {
       resultFinal = ": Lo siento , Gana la Computadora.";
     }
 
@@ -91,9 +109,10 @@ function Botones({
   return (
     <div>
       <div>
-        <button onClick={jugar}>{tipo}</button>
+        <button onClick={jugar} style={botonStyle}className='botonImagen' value={tipo}>{tipo}</button>
       </div>
     </div>
   );
 }
 export { Botones };
+
