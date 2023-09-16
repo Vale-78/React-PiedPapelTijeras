@@ -1,8 +1,8 @@
 // import React from 'react';
-// import piedra from "../assest/piedra.png"
-// import papel from "../assest/papel.png"
-// import tijeras from "../assest/tijeras.png"
 
+import piedra from "../assest/BotonesImg/piedra.png";
+import papel from "../assest/BotonesImg/papel.png";
+import tijeras from "../assest/BotonesImg/tijeras.png";
 
 function Botones({
   tipo,
@@ -23,15 +23,33 @@ function Botones({
   resultadoParcial,
   setResultadoParcial,
 }) {
-  const botonStyle = {
-     color: 'blue',
-     fontSize: 25,
-  //   backgroundImage: 'url(' + imgUrl + ')',
-  //backgroundRepeat: 'no-repeat',
-   };
-//    <div style={{ backgroundImage: "url(/image.png)" }}>
-//    Hello World
-//  </div>
+  let imagen;
+  switch (tipo) {
+    case "piedra":
+      imagen = piedra;
+
+      break;
+    case "papel":
+      imagen = papel;
+
+      break;
+    case "tijeras":
+      imagen = tijeras;
+
+      break;
+
+    default:
+      break;
+  }
+  // const botonStyle = {
+  //    color: 'blue',
+  //    fontSize: 25,
+  // //   backgroundImage: 'url(' + imgUrl + ')',
+  // //backgroundRepeat: 'no-repeat',
+  //  };
+  //    <div style={{ backgroundImage: "url(/image.png)" }}>
+  //    Hello World
+  //  </div>
   // function HelloWorldComponent() {
   //   return <div style={appStyle}>Hello World!</div>;
   // }
@@ -109,10 +127,12 @@ function Botones({
   return (
     <div>
       <div>
-        <button onClick={jugar} style={botonStyle}className='botonImagen' value={tipo}>{tipo}</button>
+        <button onClick={jugar}>
+          <img src={imagen} alt={tipo} />
+        </button>
       </div>
     </div>
   );
 }
+// en boton :   style={botonStyle}
 export { Botones };
-

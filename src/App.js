@@ -9,6 +9,8 @@ import Fondo00 from "./assest/Fondo00.png";
 import { useState } from "react";
 import { IniciarJuego } from "./componentes/IniciarJuego";
 import { ReiniciarJuego } from "./componentes/ReiniciarJuego";
+
+
 // import piedra from "../assest/piedra.png"
 // import papel from "../assest/papel.png"
 // import tijeras from "../assest/tijeras.png"
@@ -28,10 +30,8 @@ function App() {
   const [resultado, setResultado] = useState("");
   const [resultadoParcial, setResultadoParcial] = useState("");
   const [mostrarResultado, setMostrarResultado] = useState(false);
-  // const imgBotones={
-  //   piedra: require("")
-  // }
-    // import piedra from "../assest/piedra.png"
+ 
+//import piedra from "../assest/piedra.png"
 // import papel from "../assest/papel.png"
 // import tijeras from "../assest/tijeras.png"
   
