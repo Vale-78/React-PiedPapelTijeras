@@ -1,49 +1,21 @@
 import "./App.css";
 import React from "react";
 import { Saludo } from "./componentes/Saludo";
-//Iniciar juego es para iniciar y reininiar juego
-import { Botones } from "./componentes/Botones";
-import { Resultados } from "./componentes/Resultados";
 import { InfoTitulo } from "./componentes/InfoTitulo";
 import Fondo00 from "./assest/Fondo00.png";
 import { useState } from "react";
-import { IniciarJuego } from "./componentes/IniciarJuego";
-import { ReiniciarJuego } from "./componentes/ReiniciarJuego";
-
-
-// import piedra from "../assest/piedra.png"
-// import papel from "../assest/papel.png"
-// import tijeras from "../assest/tijeras.png"
-
-// https://github.com/uqbar-project/eg-hola-mundo-react/tree/master  ejemplo
-// https://es.linkedin.com/learning/domina-react/piedra-papel-o-tijera
+import { IniciarReiniciarJuego } from "./componentes/IniciarReiniciarJuego";
+import { Juego } from "./componentes/Juego";
+import { PuntajeParcial } from "./componentes/PuntajeParcial";
+import {ReiniciarJuego} from "./componentes/ReiniciarJuego"
 
 function App() {
   const [name, setName] = useState("");
   const [desbloquearJuego, setDesbloquearJuego] = useState(0);
-  const [ganaJugador, setGanaJugador] = useState(0);
-  const [ganaPC, setGanaPC] = useState(0);
-  const [compuSelec, setCompuSelec] = useState("");
-  const [jugadorSelec, setJugadorSelec] = useState("");
-
-  const [resultFinal, setResultFinal] = useState("");
-  const [resultado, setResultado] = useState("");
-  const [resultadoParcial, setResultadoParcial] = useState("");
-  const [mostrarResultado, setMostrarResultado] = useState(false);
- 
-//import piedra from "../assest/piedra.png"
-// import papel from "../assest/papel.png"
-// import tijeras from "../assest/tijeras.png"
-  
-  
-  // const appStyle = {
-  //   color: 'blue',
-  //   backgroundImage: 'url(' + imgUrl + ')',
-  // };
-  
-  // function HelloWorldComponent() {
-  //   return <div style={appStyle}>Hello World!</div>;
-  // }
+  const [puntajes, setPuntajes] = useState({ jugador: 0, computadora: 0 });
+  const [ganador, setGanador] = useState("");
+  const [mensaje, setMensaje] = useState("");
+  const[resultParcial, setResultParcial]= useState("");
 
   return (
     <div className="App" style={{ backgroundImage: `url(${Fondo00})` }}>
@@ -55,65 +27,23 @@ function App() {
         setName={setName}
         desbloquearJuego={setDesbloquearJuego}
       />
-      <IniciarJuego desbloquearJuego={setDesbloquearJuego} />
+      <IniciarReiniciarJuego
+        desbloquearJuego={setDesbloquearJuego}
+        setPuntajes={setPuntajes}
+      />
       {desbloquearJuego === 1 ? (
         <div>
-          <Botones
-            tipo="piedra"
-            jugadorSelec={jugadorSelec}
-            setJugadorSelec={setJugadorSelec}
-            compuSelec={compuSelec}
-            setCompuSelec={setCompuSelec}
-            resultFinal={resultFinal}
-            setResultFinal={setResultFinal}
-            mostrarResultado={mostrarResultado}
-            setMostrarResultado={setMostrarResultado}
-            resultado={resultado}
-            setResultado={setResultado}
-            ganaJugador={ganaJugador}
-            setGanaJugador={setGanaJugador}
-            ganaPC={ganaPC}
-            setGanaPC={setGanaPC}
-            resultadoParcial={resultadoParcial}
-            setResultadoParcial={setResultadoParcial}
-          />
-          <Botones
-            tipo="papel"
-            jugadorSelec={jugadorSelec}
-            setJugadorSelec={setJugadorSelec}
-            compuSelec={compuSelec}
-            setCompuSelec={setCompuSelec}
-            resultFinal={resultFinal}
-            setResultFinal={setResultFinal}
-            mostrarResultado={mostrarResultado}
-            setMostrarResultado={setMostrarResultado}
-            resultado={resultado}
-            setResultado={setResultado}
-            ganaJugador={ganaJugador}
-            setGanaJugador={setGanaJugador}
-            ganaPC={ganaPC}
-            setGanaPC={setGanaPC}
-            resultadoParcial={resultadoParcial}
-            setResultadoParcial={setResultadoParcial}
-          />
-          <Botones
-            tipo="tijeras"
-            jugadorSelec={jugadorSelec}
-            setJugadorSelec={setJugadorSelec}
-            compuSelec={compuSelec}
-            setCompuSelec={setCompuSelec}
-            resultFinal={resultFinal}
-            setResultFinal={setResultFinal}
-            mostrarResultado={mostrarResultado}
-            setMostrarResultado={setMostrarResultado}
-            resultado={resultado}
-            setResultado={setResultado}
-            ganaJugador={ganaJugador}
-            setGanaJugador={setGanaJugador}
-            ganaPC={ganaPC}
-            setGanaPC={setGanaPC}
-            resultadoParcial={resultadoParcial}
-            setResultadoParcial={setResultadoParcial}
+          <PuntajeParcial puntajes={puntajes} resultParcial={resultParcial} setResultParcial={setResultParcial}/>
+          <Juego
+            puntajes={puntajes}
+            setPuntajes={setPuntajes}
+            ganador={ganador}
+            setGanador={setGanador}
+            name={name}
+            mensaje={mensaje}
+            setMensaje={setMensaje}
+            resultParcial={resultParcial} 
+            setResultParcial={setResultParcial}
           />
           {/* <IniciarJuego desbloquearJuego={setDesbloquearJuego} />
       {desbloquearJuego === 1 ? ( 
@@ -121,47 +51,22 @@ function App() {
       ) : (
         <></>
       )} */}
-          <Resultados
-            desbloquearJuego={setDesbloquearJuego}
-            jugadorSelec={jugadorSelec}
-            compuSelec={compuSelec}
-            mostrarResultado={mostrarResultado}
-            resultado={resultado}
-            ganaJugador={ganaJugador}
-            ganaPC={ganaPC}
-            resultadoParcial={resultadoParcial}
-          />
+
           <div>
-          <h3>Resultado Final</h3>
+            <h3>Resultado Final</h3>
             <h3>
-              {name}
-              {resultFinal}
+              {name} : {mensaje}
             </h3>
           </div>
-
-          <ReiniciarJuego
-            desbloquearJuego={setDesbloquearJuego}
-            jugadorSelec={jugadorSelec}
-            setJugadorSelec={setJugadorSelec}
-            compuSelec={compuSelec}
-            setCompuSelec={setCompuSelec}
-            resultFinal={resultFinal}
-            setResultFinal={setResultFinal}
-            mostrarResultado={mostrarResultado}
-            setMostrarResultado={setMostrarResultado}
-            resultado={resultado}
-            setResultado={setResultado}
-            ganaJugador={ganaJugador}
-            setGanaJugador={setGanaJugador}
-            ganaPC={ganaPC}
-            setGanaPC={setGanaPC}
-            resultadoParcial={resultadoParcial}
-            setResultadoParcial={setResultadoParcial}
-          />
+      <ReiniciarJuego  desbloquearJuego={setDesbloquearJuego} 
+        setPuntajes={setPuntajes}
+        setMensaje={setMensaje}
+        />
         </div>
       ) : (
         <></>
       )}
+      
     </div>
   );
 }

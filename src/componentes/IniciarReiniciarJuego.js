@@ -1,22 +1,21 @@
-const ReiniciarJuego = ({ setPuntajes, desbloquearJuego,  setMensaje}) => {
+const IniciarReiniciarJuego = ({ setPuntajes, desbloquearJuego }) => {
   function reestablecerPuntuaciones() {
     desbloquearJuego(1);
     console.log("presioné reiniciar");
     setPuntajes({ jugador: 0, computadora: 0 });
-    setMensaje("");
   }
 
   return (
-    <div className="botones">
+    <div>
       <button
         id="re-StartButtonJuego"
         className="botonReiniciar"
         onClick={reestablecerPuntuaciones}
         type="submit"
       >
-        Reiniciar Juego
+        Iniciar Juego
       </button>
     </div>
   );
 };
-export { ReiniciarJuego };
+export { IniciarReiniciarJuego };
