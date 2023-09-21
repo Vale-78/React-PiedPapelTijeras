@@ -13,6 +13,12 @@ const estilos = {
     margin: "0 auto",
     border: "1px solid #e6e6e6",
   },
+  saludo: {
+    fontfamily: "Cambria, Cochin, Georgia, Times, 'Times New Roman', serif",
+    fontWeight: "bolder",
+    color: " rgb(92 55 124)",
+    fontSize: "2rem",
+  },
    
 };
 const Saludo = ({ name, setName, desbloquearJuego}) => {
@@ -38,7 +44,7 @@ const Saludo = ({ name, setName, desbloquearJuego}) => {
         required
         onChange={handleInputChange}
       />
-      <p>Bienvenido/a {name}</p>
+      <p style={estilos.saludo}>Bienvenido/a {name}</p>
     </div>
   );
 };

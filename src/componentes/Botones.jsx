@@ -4,8 +4,11 @@ import piedra from "../assest/BotonesImg/piedra.png";
 import papel from "../assest/BotonesImg/papel.png";
 import tijeras from "../assest/BotonesImg/tijeras.png";
 
-
-
+const estilos = {
+  botones: {
+    margin: "10px",
+  },   
+};
 
 function calcularJugadaComputadora() {
   const eleccion = ["piedra", "papel", "tijeras"];
@@ -65,13 +68,11 @@ function Botones({ tipo, puntajes, setPuntajes,resultParcial, setResultParcial }
     // reiniciar();
   }
   return (
-    <div>
-      <div>
+      <div style={estilos.botones}>
         <button onClick={jugar}>
           <img src={imagen} alt={tipo} />
         </button>
       </div>
-    </div>
   );
 }
 

@@ -4,7 +4,7 @@ import { Saludo } from "./componentes/Saludo";
 import { InfoTitulo } from "./componentes/InfoTitulo";
 import Fondo00 from "./assest/Fondo00.png";
 import { useState } from "react";
-import { IniciarReiniciarJuego } from "./componentes/IniciarReiniciarJuego";
+import { IniciarJuego } from "./componentes/IniciarJuego";
 import { Juego } from "./componentes/Juego";
 import { PuntajeParcial } from "./componentes/PuntajeParcial";
 import {ReiniciarJuego} from "./componentes/ReiniciarJuego"
@@ -30,10 +30,11 @@ function App() {
      
       {desbloquearJuego === 1 ? (
         <div> 
-        <IniciarReiniciarJuego
+        <IniciarJuego
         desbloquearJuego={setDesbloquearJuego}
         setPuntajes={setPuntajes}
       />
+        
           <PuntajeParcial puntajes={puntajes} resultParcial={resultParcial} setResultParcial={setResultParcial}/>
           <Juego
             puntajes={puntajes}
@@ -45,6 +46,7 @@ function App() {
             setMensaje={setMensaje}
             resultParcial={resultParcial} 
             setResultParcial={setResultParcial}
+            desbloquearJuego={setDesbloquearJuego}
           />
           {/* <IniciarJuego desbloquearJuego={setDesbloquearJuego} />
       {desbloquearJuego === 1 ? ( 

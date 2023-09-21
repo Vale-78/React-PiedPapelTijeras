@@ -7,18 +7,11 @@ const estilos = {
     display: "flex",
     alignItems: "center",
     flexDirection: "row-reverse",
-    justifyContent: "space-evenly",
+    justifyContent: "center",
   },
-  container: {
-    maxWidth: "950px",
-    margin: "0 auto",
-    border: "1px solid #e6e6e6",
-    padding: "25px 25px",
-  },
-   
 };
 
-function Juego({ puntajes, setPuntajes, mensaje, setMensaje, resultParcial, setResultParcial}) {
+function Juego({ puntajes, setPuntajes, mensaje, setMensaje, resultParcial, setResultParcial, desbloquearJuego}) {
   const [ganador, setGanador] = useState("");
 
   function DeterminarGanador() {
@@ -36,7 +29,7 @@ function Juego({ puntajes, setPuntajes, mensaje, setMensaje, resultParcial, setR
   return (
     <div style={estilos.botonesContainer}>
       <Botones tipo="piedra" puntajes={puntajes} setPuntajes={setPuntajes} ganador={ganador} resultParcial={resultParcial} setResultParcial={setResultParcial}/>
-      <Botones tipo="papel" puntajes={puntajes} setPuntajes={setPuntajes} resultParcial={resultParcial} setResultParcial={setResultParcial}/>
+      <Botones tipo="papel"  puntajes={puntajes} setPuntajes={setPuntajes} resultParcial={resultParcial} setResultParcial={setResultParcial}/>
       <Botones tipo="tijeras" puntajes={puntajes} setPuntajes={setPuntajes} resultParcial={resultParcial} setResultParcial={setResultParcial} />
     </div>
   );
