@@ -1,31 +1,3 @@
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [https://vale-78.github.io/React-PiedPapelTijeras/](https://vale-78.github.io/React-PiedPapelTijeras/) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
 
 ## PIEDRA-PAPEL-TIJERAS con componentes en REACT
@@ -33,9 +5,10 @@ Your app is ready to be deployed!
 #### AUTOR: Inés Valeria Foglino
 
 #### Ejecuta la aplicación en modo de desarrollo:
-Abre [https://vale-78.github.io/React-PiedPapelTijeras/](https://vale-78.github.io/React-PiedPapelTijeras/) para ver en tu navegador.
+Abre el juego [Piedra, Papel, Tijeras](https://vale-78.github.io/React-PiedPapelTijeras/) para ver y competir en tu navegador.
 ### Herramientas
-Este proyecto integra JSX y CSS en REACT. 
+
+Este proyecto fue iniciado con [Create React App](https://github.com/facebook/create-react-app) e integra JSX y CSS. 
 
 ### Características
 
@@ -47,10 +20,6 @@ Aquí podrás divertirte jugando a Piedra Papel y tijeras contra tu PC.
 
 
 ### Casos de prueba:
-
-##### Animación de título
-Al colocar el mouse sobre el título, observarás una dinámica animacíon (Rotación y cambio de colores)
-![](./assest/ImpresionPantalla0.png)
 
 ##### Ingreso del nombre de usuario
 Es necesario completar esta entrada para acceder al saludo y así habilitar el botón "Iniciar Juego".
@@ -88,56 +57,52 @@ Cabe destacar que se felicita al usuario con su "nombre" ingresado al inicio.
 
 ![](./assest/ImpresionPantalla6.png)
 
+###  Usando HOOKS:
+##### useState
+El hook useState es una de las herramientas más fundamentales en React para manejar el estado en una aplicación. Es una forma sencilla de crear y actualizar variables de estado en un componente de React sin tener que escribir una clase completa.
 
-### Algoritmo principal.
-```javascript
+##### useEffect
+En React, useEffect es un gancho que le permite realizar efectos secundarios en un componente funcional. Los efectos secundarios son operaciones que ocurren fuera del flujo normal de la representación del componente, como obtener datos de una API, configurar suscripciones o modificar el DOM.
+### Algoritmo principal, implementando useState y useEffect
+```jsx
+import React from "react";
+import { Botones } from "./Botones";
+import { useState, useEffect } from "react";
 
-    (...)
-function determinarGanador(eleccionJugador, jugadaCompu){
-    
-    if(ganaPC < 3 && ganaUsuario < 3) { 
-    const resultadoRondaParrafo = document.getElementById("resultadoRonda");
-    let numGanaUsuario = document.getElementById("numeroGanaUsuario");
-    let numGanaPC = document.getElementById("numeroGanaPC");
-        
-        if(eleccionJugador==jugadaCompu){
-            resultado = "Empate";
-            resultadoRondaParrafo.innerHTML = resultado;
-            numGanaUsuario.innerHTML = ganaUsuario;
-            numGanaPC.innerHTML= ganaPC;            
-        }else if((eleccionJugador==piedra && jugadaCompu ==tijeras) || (eleccionJugador==papel && jugadaCompu == piedra ) || (eleccionJugador==tijeras && jugadaCompu == papel)){
-            partidosJugados = partidosJugados +1;
-            console.log(partidosJugados);
-            ganaUsuario = ganaUsuario +1;
-            resultado = "Ganaste!!!";
-            resultadoRondaParrafo.innerHTML = resultado;
-            numGanaUsuario.innerHTML = ganaUsuario;
-            numGanaPC.innerHTML= ganaPC;
-        }else{
-            resultado = "Gana la computadora";
-            partidosJugados = partidosJugados +1;
-            console.log(partidosJugados);
-            ganaPC = ganaPC +1;
-            resultadoRondaParrafo.innerHTML = resultado;
-            numGanaUsuario.innerHTML = ganaUsuario;
-            numGanaPC.innerHTML= ganaPC;
-        }  
-  
-    } if(ganaPC == 3 || ganaUsuario == 3) {
-        let usuGana= ganaUsuario;
-        let compuGana= ganaPC
-        resultadoFinalfin( usuGana, compuGana);
+function Juego({ puntajes, setPuntajes, mensaje, setMensaje, resultParcial, setResultParcial}) {
+  const [ganador, setGanador] = useState("");
+
+  function DeterminarGanador() {
+    if (puntajes.jugador === 3) {
+      setGanador("jugador");
+      setMensaje("Felicitaciones, Ganaste!!!");
+    } else if (puntajes.computadora === 3) {
+      setGanador("computadora");
+      setMensaje("Lo siento, Gana la computadora");
     }
+  }
+  useEffect(() => {
+    DeterminarGanador(puntajes);
+  });
+  return (
+    <div>
+      <Botones tipo="piedra" puntajes={puntajes} setPuntajes={setPuntajes} ganador={ganador} resultParcial={resultParcial} setResultParcial={setResultParcial}/>
+      <Botones tipo="papel" puntajes={puntajes} setPuntajes={setPuntajes} resultParcial={resultParcial} setResultParcial={setResultParcial}/>
+      <Botones tipo="tijeras" puntajes={puntajes} setPuntajes={setPuntajes} resultParcial={resultParcial} setResultParcial={setResultParcial} />
+    </div>
+  );
 }
+export { Juego };
+    (...)
+
 (...)
 
 ```
 
 ### Cómo correr la aplicación _"Piedra, papel y tijeras"_?
 
-Para ejecutar esta aplicación, simplemente se necesita clonar el proyecto y ejecutar el archivo html.
-Sino, accede directamente desde aquí:
-    [GitHub Pages]( https://vale-78.github.io/Piedra-Papel-Tijeras/).
+Para ejecutar esta aplicación, simplemente se necesita clonar el proyecto [AQUÍ ](https://github.com/Vale-78/React-PiedPapelTijeras) y ejecutar el archivo, desde tu terminal, con el comando: _npm start_.
+Sino, accede directamente desde aquí: [Piedra, Papel, Tijeras](https://vale-78.github.io/React-PiedPapelTijeras/) para ver y competir en tu navegador.
 
 
 ### Contribuciones
