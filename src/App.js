@@ -27,12 +27,13 @@ function App() {
         setName={setName}
         desbloquearJuego={setDesbloquearJuego}
       />
-      <IniciarReiniciarJuego
+     
+      {desbloquearJuego === 1 ? (
+        <div> 
+        <IniciarReiniciarJuego
         desbloquearJuego={setDesbloquearJuego}
         setPuntajes={setPuntajes}
       />
-      {desbloquearJuego === 1 ? (
-        <div>
           <PuntajeParcial puntajes={puntajes} resultParcial={resultParcial} setResultParcial={setResultParcial}/>
           <Juego
             puntajes={puntajes}

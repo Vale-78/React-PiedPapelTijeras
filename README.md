@@ -4,8 +4,10 @@
 
 #### AUTOR: Inés Valeria Foglino
 
-#### Ejecuta la aplicación en modo de desarrollo:
-Abre el juego [Piedra, Papel, Tijeras](https://vale-78.github.io/React-PiedPapelTijeras/) para ver y competir en tu navegador.
+#### Cómo correr la aplicación _"Piedra, papel y tijeras"_?
+
+Para ejecutar esta aplicación, simplemente se necesita clonar el proyecto [AQUÍ ](https://github.com/Vale-78/React-PiedPapelTijeras) y ejecutar el archivo, desde tu terminal, con el comando: _npm start_.
+Sino, accede directamente desde aquí: [Piedra, Papel, Tijeras](https://vale-78.github.io/React-PiedPapelTijeras/) para ver y competir en tu navegador.
 ### Herramientas
 
 Este proyecto fue iniciado con [Create React App](https://github.com/facebook/create-react-app) e integra JSX y CSS. 
@@ -17,45 +19,6 @@ Aquí podrás divertirte jugando a Piedra Papel y tijeras contra tu PC.
 * Gana el mejor de 5 jugadas.
 * Por tanto, el que gana 3 jugadas, es el campeón.
 * Los empates no se cuentan como partidos jugados.
-
-
-### Casos de prueba:
-
-##### Ingreso del nombre de usuario
-Es necesario completar esta entrada para acceder al saludo y así habilitar el botón "Iniciar Juego".
-![](./assest/ImpresionPantalla2.png)
-
-En caso de no completarlo, aparece mensaje: "Ingresa un nombre válido".
-   
-![](./assest/ImpresionPantalla1.png)
-
-Al colocar el usuario su "Nombre", aparece el siguiente saludo: "Bienvenida/o  nombre!,  Si estás lista/o para comenzar, inicia Juego!".
-![](./assest/ImpresionPantalla3.png)
-
-##### Habilitación al clickear el botón "Iniciar Juego"
-Una vez concretado el saludo, se habilita el botón para Iniciar juego!!
-Haciendo "click" al botón "Iniciar Juego", se habilitan botones para seleccionar Jugada:
-* Piedra.
-* Papel.
-* Tijeras.
-
-
-![](./assest/ImpresionPantalla4.png)
-
-##### Grilla de conteo de Resultados
-Cada vez que el usuario selecciona una opción de juego debajo se observa: 
-* Elección de Usuario
-* Elección de Computador
-* Puntos de Juego de cada uno de los jugadores.
-* Resultado de cada ronda.
-
-![](./assest/ImpresionPantalla5.png)
-
-##### Resultado final
-Luego que ganó uno de los jugadores, aparece un mensaje de resultado final correspondiente al mejor de 5 jugadas.
-Cabe destacar que se felicita al usuario con su "nombre" ingresado al inicio.
-
-![](./assest/ImpresionPantalla6.png)
 
 ###  Usando HOOKS:
 ##### useState
@@ -93,16 +56,46 @@ function Juego({ puntajes, setPuntajes, mensaje, setMensaje, resultParcial, setR
   );
 }
 export { Juego };
-    (...)
-
-(...)
-
+ 
 ```
+### Casos de prueba:
 
-### Cómo correr la aplicación _"Piedra, papel y tijeras"_?
+##### Ingreso del nombre de usuario
+Es necesario completar esta entrada para acceder al saludo y así habilitar el botón "Iniciar Juego".
+![](./src/assest/ImpresionPantalla2.png)
 
-Para ejecutar esta aplicación, simplemente se necesita clonar el proyecto [AQUÍ ](https://github.com/Vale-78/React-PiedPapelTijeras) y ejecutar el archivo, desde tu terminal, con el comando: _npm start_.
-Sino, accede directamente desde aquí: [Piedra, Papel, Tijeras](https://vale-78.github.io/React-PiedPapelTijeras/) para ver y competir en tu navegador.
+En caso de no completarlo, aparece mensaje: "Ingresa un nombre válido".
+   
+![](./src/assest/ImpresionPantalla1.png)
+
+Al colocar el usuario su "Nombre", aparece el siguiente saludo: "Bienvenida/o  nombre!,  Si estás lista/o para comenzar, inicia Juego!".
+![](./src/assest/ImpresionPantalla3.png)
+
+##### Habilitación al clickear el botón "Iniciar Juego"
+Una vez concretado el saludo, se habilita el botón para Iniciar juego!!
+Haciendo "click" al botón "Iniciar Juego", se habilitan botones para seleccionar Jugada:
+* Piedra.
+* Papel.
+* Tijeras.
+
+
+![](./src/assest/ImpresionPantalla4.png)
+
+##### Grilla de conteo de Resultados
+Cada vez que el usuario selecciona una opción de juego debajo se observa: 
+* Elección de Usuario
+* Elección de Computador
+* Puntos de Juego de cada uno de los jugadores.
+* Resultado de cada ronda.
+
+![](./src/assest/ImpresionPantalla5.png)
+
+##### Resultado final
+Luego que ganó uno de los jugadores, aparece un mensaje de resultado final correspondiente al mejor de 5 jugadas.
+Cabe destacar que se felicita al usuario con su "nombre" ingresado al inicio.
+
+![](./src/assest/ImpresionPantalla6.png)
+
 
 
 ### Contribuciones

@@ -2,6 +2,22 @@ import React from "react";
 import { Botones } from "./Botones";
 import { useState, useEffect } from "react";
 
+const estilos = {
+  botonesContainer: {
+    display: "flex",
+    alignItems: "center",
+    flexDirection: "row-reverse",
+    justifyContent: "space-evenly",
+  },
+  container: {
+    maxWidth: "950px",
+    margin: "0 auto",
+    border: "1px solid #e6e6e6",
+    padding: "25px 25px",
+  },
+   
+};
+
 function Juego({ puntajes, setPuntajes, mensaje, setMensaje, resultParcial, setResultParcial}) {
   const [ganador, setGanador] = useState("");
 
@@ -18,7 +34,7 @@ function Juego({ puntajes, setPuntajes, mensaje, setMensaje, resultParcial, setR
     DeterminarGanador(puntajes);
   });
   return (
-    <div>
+    <div style={estilos.botonesContainer}>
       <Botones tipo="piedra" puntajes={puntajes} setPuntajes={setPuntajes} ganador={ganador} resultParcial={resultParcial} setResultParcial={setResultParcial}/>
       <Botones tipo="papel" puntajes={puntajes} setPuntajes={setPuntajes} resultParcial={resultParcial} setResultParcial={setResultParcial}/>
       <Botones tipo="tijeras" puntajes={puntajes} setPuntajes={setPuntajes} resultParcial={resultParcial} setResultParcial={setResultParcial} />
