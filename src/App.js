@@ -5,7 +5,7 @@ import { InfoTitulo } from "./componentes/InfoTitulo";
 import Fondo00 from "./assest/Fondo00.png";
 import { useState } from "react";
 import { IniciarJuego } from "./componentes/IniciarJuego";
-import { Juego } from "./componentes/Juego";
+
 import { PuntajeParcial } from "./componentes/PuntajeParcial";
 import {ReiniciarJuego} from "./componentes/ReiniciarJuego"
 
@@ -16,6 +16,7 @@ function App() {
   const [ganador, setGanador] = useState("");
   const [mensaje, setMensaje] = useState("");
   const[resultParcial, setResultParcial]= useState("");
+  const [mostrarComponente, setMostrarComponente] = useState(false);
 
   return (
     <div className="App" style={{ backgroundImage: `url(${Fondo00})` }}>
@@ -31,13 +32,9 @@ function App() {
       {desbloquearJuego === 1 ? (
         <div> 
         <IniciarJuego
-        desbloquearJuego={setDesbloquearJuego}
-        setPuntajes={setPuntajes}
-      />
-        
-          <PuntajeParcial puntajes={puntajes} resultParcial={resultParcial} setResultParcial={setResultParcial}/>
-          <Juego
-            puntajes={puntajes}
+        mostrarComponente={mostrarComponente}
+        setMostrarComponente={setMostrarComponente}
+        puntajes={puntajes}
             setPuntajes={setPuntajes}
             ganador={ganador}
             setGanador={setGanador}
@@ -47,7 +44,12 @@ function App() {
             resultParcial={resultParcial} 
             setResultParcial={setResultParcial}
             desbloquearJuego={setDesbloquearJuego}
-          />
+            
+        
+      />
+        
+          <PuntajeParcial puntajes={puntajes} resultParcial={resultParcial} setResultParcial={setResultParcial}/>
+        
           {/* <IniciarJuego desbloquearJuego={setDesbloquearJuego} />
       {desbloquearJuego === 1 ? ( 
         <div></div>

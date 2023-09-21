@@ -17,8 +17,9 @@ function calcularJugadaComputadora() {
 }
 
 function Botones({ tipo, puntajes, setPuntajes,resultParcial, setResultParcial }) {
-  function DeterminarGanador(eleccionUsuario, eleccionCompu) {
   
+
+  function DeterminarGanador(eleccionUsuario, eleccionCompu) {
     if (eleccionCompu === eleccionUsuario) {
       setResultParcial("Empate");
       return "Empate";
@@ -64,8 +65,9 @@ function Botones({ tipo, puntajes, setPuntajes,resultParcial, setResultParcial }
         jugador: puntajes.jugador,
         computadora: puntajes.computadora + 1,
       });
+
     }
-    // reiniciar();
+   
   }
   return (
       <div style={estilos.botones}>
@@ -76,5 +78,4 @@ function Botones({ tipo, puntajes, setPuntajes,resultParcial, setResultParcial }
   );
 }
 
-// en boton :   style={botonStyle}
 export { Botones };
