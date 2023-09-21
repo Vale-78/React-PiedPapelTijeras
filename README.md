@@ -27,44 +27,125 @@ It correctly bundles React in production mode and optimizes the build for the be
 The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+## PIEDRA-PAPEL-TIJERAS con componentes en REACT
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+#### AUTOR: Inés Valeria Foglino
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+#### Ejecuta la aplicación en modo de desarrollo:
+Abre [https://vale-78.github.io/React-PiedPapelTijeras/](https://vale-78.github.io/React-PiedPapelTijeras/) para ver en tu navegador.
+### Herramientas
+Este proyecto integra JSX y CSS en REACT. 
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Características
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Aquí podrás divertirte jugando a Piedra Papel y tijeras contra tu PC.
 
-## Learn More
+* Gana el mejor de 5 jugadas.
+* Por tanto, el que gana 3 jugadas, es el campeón.
+* Los empates no se cuentan como partidos jugados.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Casos de prueba:
 
-### Code Splitting
+##### Animación de título
+Al colocar el mouse sobre el título, observarás una dinámica animacíon (Rotación y cambio de colores)
+![](./assest/ImpresionPantalla0.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+##### Ingreso del nombre de usuario
+Es necesario completar esta entrada para acceder al saludo y así habilitar el botón "Iniciar Juego".
+![](./assest/ImpresionPantalla2.png)
 
-### Analyzing the Bundle Size
+En caso de no completarlo, aparece mensaje: "Ingresa un nombre válido".
+   
+![](./assest/ImpresionPantalla1.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Al colocar el usuario su "Nombre", aparece el siguiente saludo: "Bienvenida/o  nombre!,  Si estás lista/o para comenzar, inicia Juego!".
+![](./assest/ImpresionPantalla3.png)
 
-### Making a Progressive Web App
+##### Habilitación al clickear el botón "Iniciar Juego"
+Una vez concretado el saludo, se habilita el botón para Iniciar juego!!
+Haciendo "click" al botón "Iniciar Juego", se habilitan botones para seleccionar Jugada:
+* Piedra.
+* Papel.
+* Tijeras.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
+![](./assest/ImpresionPantalla4.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+##### Grilla de conteo de Resultados
+Cada vez que el usuario selecciona una opción de juego debajo se observa: 
+* Elección de Usuario
+* Elección de Computador
+* Puntos de Juego de cada uno de los jugadores.
+* Resultado de cada ronda.
 
-### Deployment
+![](./assest/ImpresionPantalla5.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+##### Resultado final
+Luego que ganó uno de los jugadores, aparece un mensaje de resultado final correspondiente al mejor de 5 jugadas.
+Cabe destacar que se felicita al usuario con su "nombre" ingresado al inicio.
 
-### `npm run build` fails to minify
+![](./assest/ImpresionPantalla6.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+### Algoritmo principal.
+```javascript
+
+    (...)
+function determinarGanador(eleccionJugador, jugadaCompu){
+    
+    if(ganaPC < 3 && ganaUsuario < 3) { 
+    const resultadoRondaParrafo = document.getElementById("resultadoRonda");
+    let numGanaUsuario = document.getElementById("numeroGanaUsuario");
+    let numGanaPC = document.getElementById("numeroGanaPC");
+        
+        if(eleccionJugador==jugadaCompu){
+            resultado = "Empate";
+            resultadoRondaParrafo.innerHTML = resultado;
+            numGanaUsuario.innerHTML = ganaUsuario;
+            numGanaPC.innerHTML= ganaPC;            
+        }else if((eleccionJugador==piedra && jugadaCompu ==tijeras) || (eleccionJugador==papel && jugadaCompu == piedra ) || (eleccionJugador==tijeras && jugadaCompu == papel)){
+            partidosJugados = partidosJugados +1;
+            console.log(partidosJugados);
+            ganaUsuario = ganaUsuario +1;
+            resultado = "Ganaste!!!";
+            resultadoRondaParrafo.innerHTML = resultado;
+            numGanaUsuario.innerHTML = ganaUsuario;
+            numGanaPC.innerHTML= ganaPC;
+        }else{
+            resultado = "Gana la computadora";
+            partidosJugados = partidosJugados +1;
+            console.log(partidosJugados);
+            ganaPC = ganaPC +1;
+            resultadoRondaParrafo.innerHTML = resultado;
+            numGanaUsuario.innerHTML = ganaUsuario;
+            numGanaPC.innerHTML= ganaPC;
+        }  
+  
+    } if(ganaPC == 3 || ganaUsuario == 3) {
+        let usuGana= ganaUsuario;
+        let compuGana= ganaPC
+        resultadoFinalfin( usuGana, compuGana);
+    }
+}
+(...)
+
+```
+
+### Cómo correr la aplicación _"Piedra, papel y tijeras"_?
+
+Para ejecutar esta aplicación, simplemente se necesita clonar el proyecto y ejecutar el archivo html.
+Sino, accede directamente desde aquí:
+    [GitHub Pages]( https://vale-78.github.io/Piedra-Papel-Tijeras/).
+
+
+### Contribuciones
+
+Cualquier tipo de aportes son bienvenidos.
+
+1. <a href='https://help.github.com/articles/fork-a-repo/'>**(Fork)**</a> Bifurque el repositorio en GitHub.
+2. <a href='https://help.github.com/articles/cloning-a-repository/'>**(Clone)**</a> Clone el proyecto en su propia máquina.
+3. <a href='https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository'>**(Commit)**</a> Confirmar cambios en la rama de desarrollo. <a href='https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell'>**(development branch)**</a>.
+4. <a href='https://help.github.com/articles/pushing-to-a-remote/'>**(Push)**</a> Empuje su trabajo de regreso a su repositorio en git.
+5. <a href='https://help.github.com/articles/about-pull-requests/'>**(Pull request)**</a> Envíe una solicitud de extracción para que pueda revisar sus cambios. 
