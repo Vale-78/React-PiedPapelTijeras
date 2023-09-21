@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/React-PiedPapelTijeras/static/css/main.073c9b0a.css",
-    "main.js": "/React-PiedPapelTijeras/static/js/main.6bf85f80.js",
+    "main.css": "/React-PiedPapelTijeras/static/css/main.ca57846c.css",
+    "main.js": "/React-PiedPapelTijeras/static/js/main.2c36896c.js",
     "static/js/787.7b68020e.chunk.js": "/React-PiedPapelTijeras/static/js/787.7b68020e.chunk.js",
     "static/media/Fondo00.png": "/React-PiedPapelTijeras/static/media/Fondo00.bc51c3901602a5162baa.png",
     "static/media/papel.png": "/React-PiedPapelTijeras/static/media/papel.9b59c37a3c794ba2d634.png",
     "static/media/piedra.png": "/React-PiedPapelTijeras/static/media/piedra.a9c7a7f53942d9d94f65.png",
     "static/media/tijeras.png": "/React-PiedPapelTijeras/static/media/tijeras.2a40ada55ebb80bf214b.png",
     "index.html": "/React-PiedPapelTijeras/index.html",
-    "main.073c9b0a.css.map": "/React-PiedPapelTijeras/static/css/main.073c9b0a.css.map",
-    "main.6bf85f80.js.map": "/React-PiedPapelTijeras/static/js/main.6bf85f80.js.map",
+    "main.ca57846c.css.map": "/React-PiedPapelTijeras/static/css/main.ca57846c.css.map",
+    "main.2c36896c.js.map": "/React-PiedPapelTijeras/static/js/main.2c36896c.js.map",
     "787.7b68020e.chunk.js.map": "/React-PiedPapelTijeras/static/js/787.7b68020e.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.073c9b0a.css",
-    "static/js/main.6bf85f80.js"
+    "static/css/main.ca57846c.css",
+    "static/js/main.2c36896c.js"
   ]
 }
